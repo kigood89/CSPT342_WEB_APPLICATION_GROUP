@@ -1,37 +1,37 @@
-# Assignment 2 - Express Routing + CRUD Operations using SQLite Database.
-For this second assignment, you will continue building out your application by implementing CRUD functionality using sqlite database.   
+# GroceryGo
 
-## Deliverable 1 (10 Points)
-The project folder is configured with git and npm. You are welcome to scaffold your own folder structure or you can use the [express generator](https://expressjs.com/en/starter/generator.html) to quickly create an application skeleton. 
-- Git is initialized into the issued repository and the .gitignore file is configured to ignore the node_modules folder and any other file that is not needed in the remote repository.
-- The package.json file contains a list of all development/app dependencies
-- Application folder displays a hierarchal folder structure
+## Team Name / Member(s)
+Team Name: GroceryGo Developers  
+Members: Kianna,Mike,Mary
 
-## Deliverable 2 - Routing and Middleware configuration (10 Points)
-For this deliverable, you will focus on implementing the necessary middleware needed to configure and route your application. Feel free to refer back to the [node.js](https://instructorc.github.io/site/slides/logic/nodejs.html) presentation for code samples and an explanation of concepts.
-- Middleware is implemented for static files such as images, pdf's, etc
-- Middleware is implemented for view templating engine
-- Middleware configured to parse JSON data and interpret form data.  Implement the following code below to meet requirement.
-``` javascript
- // parse application/json
-app.use(express.json());
+## Application Name
+GroceryGo
 
-// For parsing application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-```
+## Description of the Application
+GroceryGo is a simple grocery shopping app that helps users manage their shopping lists and save time.  
+Users can create and organize grocery lists, mark items as purchased, and access their lists anytime.
 
-- Application has a minimum of 5 routes implemented
-  1.  A minimum of three routes should accept data. Both the GET and POST methods will need to be represented in your routing functions
-  2.  A minimum of three routes should render data back to the client/user interface.
- 
- 
+## Need and Purpose of the Application
+This app helps shoppers stay organized and manage their time more efficiently.  
+It replaces handwritten lists and makes grocery planning easier for everyday use.
 
-## Deliverable 3 - Database implementation (10 Points)
-- Your application contains a file titled "database.js" and all of your SQL queries are listed and identified.
-- Your database.js file contains a minimum of 4 queries that represent the Create, Retrieve, Update and Delete (CRUD) functionality.
-- Database queries are represented within the routes and perform CRUD operations.
-- SQLite Database file is included within the project folder
+## Intended Target Audience
+The app is designed for anyone who shops for groceries, including busy individuals, families, and students.
 
+## Application Pages and Features
+| Page | Description |
+|------|--------------|
+| Home Page | Overview of app features |
+| Login / Register Page | Create an account or log in |
+| Shopping List Page | Add, edit, or check off grocery items |
+| Settings Page | Manage account preferences |
 
-## Submission Guidelines
-Your project folder will need to be submitted to the assigned GitHub repository provided to you by the instructor. In Sakai, you will need to submit the link to your repository by the due date and time listed in the write-up. Make sure you receive confirmation from Sakai that your assignment has been submitted.
+## Application Goals
+1. Help users create and manage grocery lists easily.  
+2. Save time while shopping.  
+3. Provide a simple and user-friendly interface.
+
+## Tools and Software
+- Code Editor: Visual Studio Code  
+- Collaboration Tools: GitHub
+- Languages: HTML, CSS, JavaScript
