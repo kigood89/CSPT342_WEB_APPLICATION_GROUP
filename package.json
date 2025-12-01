@@ -1,0 +1,27 @@
+{
+  "name": "assignment1_grocerygo",
+  "version": "1.0.0",
+  "description": "Team Name: GroceryGo Developers   Members: Kianna and Mary",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kigood89/CSPT342_WEB_APPLICATION_GROUP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kigood89/CSPT342_WEB_APPLICATION_GROUP/issues"
+  },
+  "homepage": "https://github.com/kigood89/CSPT342_WEB_APPLICATION_GROUP#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "sqlite3": "^5.1.7"
+  }
+}
