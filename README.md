@@ -2,7 +2,7 @@
 
 ## Team Name / Member(s)
 Team Name: GroceryGo Developers  
-Members: Kianna,Mike,Mary
+Members: Kianna and Mary
 
 ## Application Name
 GroceryGo
