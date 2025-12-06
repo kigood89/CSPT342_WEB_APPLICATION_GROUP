@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping List</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <%- include("partials/header") %>
+
+  <main class="container">
+
+    <h2>Shopping List</h2>
+
+    <div class="card">
+      <input id="itemInput" placeholder="Item name">
+      <input id="qtyInput" placeholder="Qty" style="width:80px">
+      <select id="aisleInput">
+        <option>Produce</option>
+        <option>Dairy</option>
+        <option>Bakery</option>
+        <option>Frozen</option>
+        <option>Pantry</option>
+        <option>Household</option>
+        <option>Other</option>
+      </select>
+      <button onclick="addItem()">Add</button>
+    </div>
+
+    <div id="listContainer"></div>
+
+  </main>
+
+  <%- include("partials/footer") %>
+
+  <script src="/js/shoppingList.js"></script>
+
+</body>
+</html>

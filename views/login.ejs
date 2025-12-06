@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | Grocery Planner</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <%- include ("partials/header") %>
+
+  <main class="container">
+    <h2>Login</h2>
+
+    <form method="POST" action="/login">
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <button class="btn">Login</button>
+    </form>
+
+    <h3>Create an Account</h3>
+
+    <form method="POST" action="/register">
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <button class="btn">Register</button>
+    </form>
+
+  </main>
+
+  <%- include ("partials/footer") %>
+
+</body>
+</html>
