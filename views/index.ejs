@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Grocery Planner - Home</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>GroceryGo</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
 
-  <%- include("partials/header") %>
+<body class="home-page">
 
+    <!-- HEADER -->
+    <header class="home-header">
+        <h1>🥬 GroceryGo</h1>
+        <p>Your smart grocery organizer</p>
+    </header>
 
-  <main class="container">
-    <h2>Welcome to the Grocery Planner App</h2>
-    <p>This tool helps you organize and manage your grocery shopping efficiently.</p>
+    <!-- NAVIGATION / CATEGORY GRID -->
+    <section class="aisle-grid">
 
-    <ul>
-      <li>Create and track shopping lists</li>
-      <li>Organize groceries by aisle</li>
-      <li>Edit and update items</li>
-      <li>Personalize your experience</li>
-    </ul>
+        <a href="/produce" class="aisle-card produce-card">
+            <h2>🥕 Produce</h2>
+        </a>
 
-    <a href="/shopping-list" class="btn">Go to Shopping List</a>
-  </main>
+        <a href="/dairy" class="aisle-card dairy-card">
+            <h2>🥛 Dairy</h2>
+        </a>
 
-  <%- include("partials/footer") %>
+        <a href="/meat" class="aisle-card meat-card">
+            <h2>🍗 Meat</h2>
+        </a>
 
+        <a href="/snacks" class="aisle-card snacks-card">
+            <h2>🍫 Snacks</h2>
+        </a>
+
+        <a href="/drinks" class="aisle-card drinks-card">
+            <h2>🥤 Drinks</h2>
+        </a>
+
+        <a href="/frozen" class="aisle-card frozen-card">
+            <h2>❄️ Frozen</h2>
+        </a>
+
+        <a href="/pantry" class="aisle-card pantry-card">
+            <h2>🥫 Pantry</h2>
+        </a>
+
+    </section>
 
 </body>
 </html>
