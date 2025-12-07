@@ -1,0 +1,90 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f2f2f2;
+}
+
+/* HERO HEADER */
+.hero-header {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: white;
+    text-align: center;
+    padding: 40px 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.hero-header h1 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hero-header p {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+/* SEARCH BAR */
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.search-box {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+/* CATEGORY GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CATEGORY CARD */
+.category-card {
+    position: relative;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+/* DARK OVERLAY ON CARD */
+.category-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+}
+
+/* TITLE ON CARD */
+.category-card h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
