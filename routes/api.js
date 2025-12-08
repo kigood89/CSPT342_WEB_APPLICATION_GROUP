@@ -1,89 +1,68 @@
 const express = require("express");
 const router = express.Router();
-const groceriesRouter = require("./groceries");
-
-// Example: /api/groceries
-router.use("/groceries", groceriesRouter);
-const express = require('express');
-const router = express.Router();
-
-// Temporary in-memory grocery list (you can connect to DB later)
-let groceries = [
-    { id: 1, name: "Milk", aisle: "Dairy" },
-    { id: 2, name: "Eggs", aisle: "Dairy" },
-    { id: 3, name: "Bananas", aisle: "Produce" },
-    { id: 4, name: "Chicken Breast", aisle: "Meat" }
-];
+const db = require("../database");
+const fetch = require("node-fetch");
 
 // --------------------------------------------------
-// GET ALL GROCERIES
+// GET ALL GROCERIES (SQLite)
 // --------------------------------------------------
-router.get('/groceries', (req, res) => {
-    res.json(groceries);
+router.get("/groceries", async (req, res) => {
+  const items = await db.getAllItems();
+  res.json(items);
 });
 
 // --------------------------------------------------
-// ADD A NEW GROCERY ITEM
+// ADD NEW GROCERY ITEM (CREATE)
 // --------------------------------------------------
-router.post('/groceries', (req, res) => {
-    const newItem = {
-        id: groceries.length + 1,
-        name: req.body.name,
-        aisle: req.body.aisle
-    };
-
-    groceries.push(newItem);
-
-    res.json({
-        message: "Item added successfully!",
-        item: newItem
-    });
+router.post("/groceries", async (req, res) => {
+  const { name, qty, aisle } = req.body;
+  await db.createItem(name, qty, aisle);
+  res.json({ message: "Item added successfully!" });
 });
 
 // --------------------------------------------------
-// GET GROCERIES BY AISLE (GROUP / CATEGORY)
+// UPDATE ITEM
 // --------------------------------------------------
-
-// PRODUCE
-router.get('/aisle/produce', (req, res) => {
-    const produceItems = groceries.filter(item => item.aisle.toLowerCase() === "produce");
-    res.json(produceItems);
+router.post("/groceries/update/:id", async (req, res) => {
+  const id = req.params.id;
+  const { qty } = req.body;
+  await db.updateItem(id, qty);
+  res.json({ message: "Item updated successfully!" });
 });
 
-// DAIRY
-router.get('/aisle/dairy', (req, res) => {
-    const dairyItems = groceries.filter(item => item.aisle.toLowerCase() === "dairy");
-    res.json(dairyItems);
+// --------------------------------------------------
+// DELETE ITEM
+// --------------------------------------------------
+router.post("/groceries/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  await db.deleteItem(id);
+  res.json({ message: "Item deleted successfully!" });
 });
 
-// MEAT
-router.get('/aisle/meat', (req, res) => {
-    const meatItems = groceries.filter(item => item.aisle.toLowerCase() === "meat");
-    res.json(meatItems);
+// --------------------------------------------------
+// FILTER BY AISLE
+// /api/aisle/dairy
+// /api/aisle/produce
+// /api/aisle/meat
+// --------------------------------------------------
+router.get("/aisle/:aisleName", async (req, res) => {
+  const aisleName = req.params.aisleName.toLowerCase();
+  const items = await db.getAllItems();
+  const filtered = items.filter(item => item.aisle.toLowerCase() === aisleName);
+  res.json(filtered);
 });
 
-// SNACKS
-router.get('/aisle/snacks', (req, res) => {
-    const snackItems = groceries.filter(item => item.aisle.toLowerCase() === "snacks");
-    res.json(snackItems);
-});
-
-// DRINKS
-router.get('/aisle/drinks', (req, res) => {
-    const drinkItems = groceries.filter(item => item.aisle.toLowerCase() === "drinks");
-    res.json(drinkItems);
-});
-
-// FROZEN
-router.get('/aisle/frozen', (req, res) => {
-    const frozenItems = groceries.filter(item => item.aisle.toLowerCase() === "frozen");
-    res.json(frozenItems);
-});
-
-// PANTRY
-router.get('/aisle/pantry', (req, res) => {
-    const pantryItems = groceries.filter(item => item.aisle.toLowerCase() === "pantry");
-    res.json(pantryItems);
+// --------------------------------------------------
+// EXTERNAL API (Dog API example)
+// --------------------------------------------------
+router.get("/dogbreeds", async (req, res) => {
+  try {
+    const response = await fetch("https://api.thedogapi.com/v1/breeds");
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "API failed" });
+  }
 });
 
 module.exports = router;

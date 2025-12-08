@@ -4,6 +4,7 @@ const path = require("path");
 // Routes
 const groceriesRoute = require("./routes/groceries");
 const apiRoute = require("./routes/api");
+app.use("/api", apiRoute);
 
 const app = express();
 
