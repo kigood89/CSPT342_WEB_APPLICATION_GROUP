@@ -1,47 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>GroceryGo</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="homepage">
 
-    <!-- HEADER -->
-    <header class="hero-header">
-        <h1>GroceryGo</h1>
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <h1>🥬 GroceryGo</h1>
         <p>Your Personalized Grocery Organizer</p>
     </header>
 
     <!-- SEARCH BAR -->
-    <section class="search-container">
-        <input type="text" placeholder="Search groceries..." class="search-box" />
-    </section>
+    <div class="search-wrapper">
+        <input id="searchInput" class="search-bar" type="text" placeholder="Search groceries...">
+    </div>
 
     <!-- CATEGORY GRID -->
     <section class="category-grid">
 
-        <a href="/produce" class="category-card" style="background-image: url('/images/produce.jpg');">
+        <a href="/produce" class="category-card" style="background-image:url('/images/produce.jpg')">
             <div class="overlay"></div>
-            <h2>Produce</h2>
+            <h2>🥕 Produce</h2>
         </a>
 
-        <a href="/dairy" class="category-card" style="background-image: url('/images/dairy.jpg');">
+        <a href="/dairy" class="category-card" style="background-image:url('/images/dairy.jpg')">
             <div class="overlay"></div>
-            <h2>Dairy</h2>
+            <h2>🥛 Dairy</h2>
         </a>
 
-        <a href="/meat" class="category-card" style="background-image: url('/images/meat.jpg');">
+        <a href="/meat" class="category-card" style="background-image:url('/images/meat.jpg')">
             <div class="overlay"></div>
-            <h2>Meat</h2>
+            <h2>🍖 Meat</h2>
         </a>
 
-        <a href="/snacks" class="category-card" style="background-image: url('/images/snacks.jpg');">
+        <a href="/snacks" class="category-card" style="background-image:url('/images/snacks.jpg')">
             <div class="overlay"></div>
-            <h2>Snacks</h2>
+            <h2>🍫 Snacks</h2>
         </a>
 
-        <a href="/drinks" class="category-card" style="background-image: url('/images/drinks.jpg');">
-            <div class="ov
+        <a href="/drinks" class="category-card" style="background-image:url('/images/drinks.jpg')">
+            <div class="overlay"></div>
+            <h2>🥤 Drinks</h2>
+        </a>
+
+        <a href="/frozen" class="category-card" style="background-image:url('/images/frozen.jpg')">
+            <div class="overlay"></div>
+            <h2>❄️ Frozen</h2>
+        </a>
+
+        <a href="/pantry" class="category-card" style="background-image:url('/images/pantry.jpg')">
+            <div class="overlay"></div>
+            <h2>🥫 Pantry</h2>
+        </a>
+
+    </section>
+
+</body>
+</html>
 
