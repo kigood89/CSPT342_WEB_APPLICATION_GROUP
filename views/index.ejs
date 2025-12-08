@@ -5,37 +5,61 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<body>
+<body class="home-body">
 
     <% include("partials/header") %>
 
     <main class="home-container">
 
-        <section class="welcome">
+        <!-- WELCOME SECTION -->
+        <section class="welcome-box">
             <h1>Welcome to GroceryGo 🛒</h1>
-            <p>Your smart grocery shopping companion.</p>
+            <p>Your smart, colorful grocery shopping companion.</p>
         </section>
 
-        <section class="main-options">
+        <!-- MAIN BUTTONS -->
+        <section class="main-buttons">
 
-            <a href="/login" class="home-button">🔐 Login / Register</a>
+            <a href="/login" class="big-button login-btn">🔐 Login / Register</a>
 
-            <a href="/shopping-list" class="home-button">📝 View Shopping List</a>
+            <a href="/shopping-list" class="big-button list-btn">📝 Shopping List</a>
 
-            <a href="/settings" class="home-button">⚙️ Settings</a>
+            <a href="/settings" class="big-button settings-btn">⚙️ Settings</a>
+
         </section>
 
-        <h2>Aisle Categories</h2>
+        <h2 class="aisle-title">Shop by Aisle</h2>
 
+        <!-- AISLE CARDS GRID -->
         <section class="aisle-grid">
 
-            <a href="/produce" class="aisle-card">🥕 Produce</a>
-            <a href="/dairy" class="aisle-card">🧀 Dairy</a>
-            <a href="/meat" class="aisle-card">🍖 Meat</a>
-            <a href="/snacks" class="aisle-card">🍿 Snacks</a>
-            <a href="/drinks" class="aisle-card">🥤 Drinks</a>
-            <a href="/frozen" class="aisle-card">❄️ Frozen</a>
-            <a href="/pantry" class="aisle-card">🥫 Pantry</a>
+            <a href="/produce" class="aisle-card produce">
+                <div class="label">🥕 Produce</div>
+            </a>
+
+            <a href="/dairy" class="aisle-card dairy">
+                <div class="label">🧀 Dairy</div>
+            </a>
+
+            <a href="/meat" class="aisle-card meat">
+                <div class="label">🍖 Meat</div>
+            </a>
+
+            <a href="/snacks" class="aisle-card snacks">
+                <div class="label">🍿 Snacks</div>
+            </a>
+
+            <a href="/drinks" class="aisle-card drinks">
+                <div class="label">🥤 Drinks</div>
+            </a>
+
+            <a href="/frozen" class="aisle-card frozen">
+                <div class="label">❄️ Frozen</div>
+            </a>
+
+            <a href="/pantry" class="aisle-card pantry">
+                <div class="label">🥫 Pantry</div>
+            </a>
 
         </section>
 
