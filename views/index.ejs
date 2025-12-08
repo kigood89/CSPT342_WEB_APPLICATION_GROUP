@@ -1,64 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GroceryGo</title>
+    <title>GroceryGo - Home</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="homepage">
+<body>
 
-    <!-- HERO HEADER -->
-    <header class="hero">
-        <h1>🥬 GroceryGo</h1>
-        <p>Your Personalized Grocery Organizer</p>
-    </header>
+    <% include("partials/header") %>
 
-    <!-- SEARCH BAR -->
-    <div class="search-wrapper">
-        <input id="searchInput" class="search-bar" type="text" placeholder="Search groceries...">
-    </div>
+    <main class="home-container">
 
-    <!-- CATEGORY GRID -->
-    <section class="category-grid">
+        <section class="welcome">
+            <h1>Welcome to GroceryGo 🛒</h1>
+            <p>Your smart grocery shopping companion.</p>
+        </section>
 
-        <a href="/produce" class="category-card" style="background-image:url('/images/produce.jpg')">
-            <div class="overlay"></div>
-            <h2>🥕 Produce</h2>
-        </a>
+        <section class="main-options">
 
-        <a href="/dairy" class="category-card" style="background-image:url('/images/dairy.jpg')">
-            <div class="overlay"></div>
-            <h2>🥛 Dairy</h2>
-        </a>
+            <a href="/login" class="home-button">🔐 Login / Register</a>
 
-        <a href="/meat" class="category-card" style="background-image:url('/images/meat.jpg')">
-            <div class="overlay"></div>
-            <h2>🍖 Meat</h2>
-        </a>
+            <a href="/shopping-list" class="home-button">📝 View Shopping List</a>
 
-        <a href="/snacks" class="category-card" style="background-image:url('/images/snacks.jpg')">
-            <div class="overlay"></div>
-            <h2>🍫 Snacks</h2>
-        </a>
+            <a href="/settings" class="home-button">⚙️ Settings</a>
+        </section>
 
-        <a href="/drinks" class="category-card" style="background-image:url('/images/drinks.jpg')">
-            <div class="overlay"></div>
-            <h2>🥤 Drinks</h2>
-        </a>
+        <h2>Aisle Categories</h2>
 
-        <a href="/frozen" class="category-card" style="background-image:url('/images/frozen.jpg')">
-            <div class="overlay"></div>
-            <h2>❄️ Frozen</h2>
-        </a>
+        <section class="aisle-grid">
 
-        <a href="/pantry" class="category-card" style="background-image:url('/images/pantry.jpg')">
-            <div class="overlay"></div>
-            <h2>🥫 Pantry</h2>
-        </a>
+            <a href="/produce" class="aisle-card">🥕 Produce</a>
+            <a href="/dairy" class="aisle-card">🧀 Dairy</a>
+            <a href="/meat" class="aisle-card">🍖 Meat</a>
+            <a href="/snacks" class="aisle-card">🍿 Snacks</a>
+            <a href="/drinks" class="aisle-card">🥤 Drinks</a>
+            <a href="/frozen" class="aisle-card">❄️ Frozen</a>
+            <a href="/pantry" class="aisle-card">🥫 Pantry</a>
 
-    </section>
+        </section>
+
+    </main>
 
 </body>
 </html>
+
 
