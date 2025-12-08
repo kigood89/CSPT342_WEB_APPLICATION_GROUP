@@ -1,24 +1,101 @@
-body.homepage {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #f3f3f3;
+/*  GLOBAL BRIGHT COLORS*/
+:root {
+    --yellow: #ffe066;
+    --orange: #ff9f1c;
+    --green: #2ec4b6;
+    --red: #ff4d6d;
+    --blue: #118ab2;
+    --white: #fff;
 }
 
-/* HERO SECTION */
-.hero {
-    background: linear-gradient(135deg, #51c878, #3aa86b);
-    color: white;
+/* PAGE BACKGROUND */
+.home-body {
+    background: linear-gradient(to bottom right, #ffe066, #ff9f1c);
+    font-family: Arial, sans-serif;
+}
+
+/* CONTAINER */
+.home-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
     text-align: center;
-    padding: 60px 20px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
+/* WELCOME BOX */
+.welcome-box {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
 }
+
+/* MAIN BUTTONS */
+.big-button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.big-button:hover {
+    transform: scale(1.06);
+}
+
+.login-btn { background: var(--green); }
+.list-btn { background: var(--blue); }
+.settings-btn { background: var(--red); }
+
+/* SECTION TITLE */
+.aisle-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* AISLE GRID */
+.aisle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+/* AISLE CARDS */
+.aisle-card {
+    position: relative;
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: 0.25s;
+}
+
+.aisle-card:hover {
+    transform: scale(1.08);
+}
+
+/* BRIGHT BACKGROUNDS */
+.aisle-card.produce { background: #77dd77; }
+.aisle-card.dairy { background: #aec6cf; }
+.aisle-card.meat { background: #ff6961; }
+.aisle-card.snacks { background: #fdfd96; color: #444; }
+.aisle-card.drinks { background: #84b6f4; }
+.aisle-card.frozen { background: #b0e0e6; }
+.aisle-card.pantry { background: #cfcfc4; color: #333; }
+
 
 /* SEARCH BAR */
 .search-wrapper {
