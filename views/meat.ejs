@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meat - GroceryGo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <% include("partials/header") %>
+
+    <main class="container">
+        <h2>🍖 Meat</h2>
+        <div id="aisleItems" class="aisle-grid"></div>
+    </main>
+
+    <script>
+        async function loadAisle() {
+            const res = await fetch("/api/aisle/meat");
+            const items = await res.json();
+            const container = document.getElementById("aisleItems");
+            container.innerHTML = "";
+
+            items.forEach(item => {
+                container.innerHTML += `
+                    <div class="item-card">
+                        <h3>${item.name}</h3>
+                        <p>Aisle: ${item.aisle}</p>
+                        <button onclick="deleteItem(${item.id})">Delete</button>
+                    </div>
+                `;
+            });
+        }
+
+        async function deleteItem(id) {
+            await fetch("/api/groceries/" + id, { method: "DELETE" });
+            loadAisle();
+        }
+
+        document.addEventListener("DOMContentLoaded", loadAisle);
+    </script>
+
+</body>
+</html>
