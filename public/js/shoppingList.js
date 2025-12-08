@@ -1,40 +1,97 @@
-function addItem() {
-    const name = document.getElementById('itemInput').value.trim();
-    const qty = document.getElementById('qtyInput').value.trim() || 1;
-    const aisle = document.getElementById('aisleInput').value;
+// ------------------------------
+// DOM ELEMENTS
+// ------------------------------
+const itemInput = document.getElementById("itemInput");
+const qtyInput = document.getElementById("qtyInput");
+const aisleInput = document.getElementById("aisleInput");
+const listContainer = document.getElementById("listContainer");
+const addBtn = document.getElementById("addBtn");
+
+// ------------------------------
+// LOAD ITEMS ON PAGE START
+// ------------------------------
+document.addEventListener("DOMContentLoaded", loadItems);
+
+
+// ------------------------------
+// FETCH ALL ITEMS
+// ------------------------------
+async function loadItems() {
+    listContainer.innerHTML = ""; // Clear old list
+
+    try {
+        const res = await fetch("/api/groceries");
+        const data = await res.json();
+
+        data.forEach(item => renderItem(item));
+    } catch (err) {
+        console.error("Error loading items:", err);
+    }
+}
+
+
+// ------------------------------
+// RENDER ITEM IN UI
+// ------------------------------
+function renderItem(item) {
+    const div = document.createElement("div");
+    div.className = "list-item";
+
+    div.innerHTML = `
+        <span>
+            <strong>${item.name}</strong>  
+            (${item.aisle}) — Qty: ${item.qty || 1}
+        </span>
+        <button class="delete-btn" onclick="deleteItem(${item.id})">✖</button>
+    `;
+
+    listContainer.appendChild(div);
+}
+
+
+// ------------------------------
+// ADD NEW ITEM
+// ------------------------------
+addBtn.addEventListener("click", async () => {
+    const name = itemInput.value.trim();
+    const aisle = aisleInput.value;
+    const qty = qtyInput.value || 1;
 
     if (!name) {
-        alert("Item name is required!");
+        alert("Please enter an item name.");
         return;
     }
 
-    const list = document.getElementById('listContainer');
+    try {
+        const res = await fetch("/api/groceries", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, aisle, qty })
+        });
 
-    const row = document.createElement('div');
-    row.className = 'item-row';
+        const data = await res.json();
 
-    row.innerHTML = `
-      <div class="left">
-        <input type="checkbox" onchange="toggleComplete(this)">
-        <span>${name} (x${qty}) — ${aisle}</span>
-      </div>
-      <button class="edit-btn" onclick="editItem(this)">Edit</button>
-      <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
-    `;
+        renderItem(data.item); // Add item to list instantly
 
-    list.appendChild(row);
+        itemInput.value = "";
+        qtyInput.value = "";
+        aisleInput.value = "produce";
 
-    document.getElementById('itemInput').value = "";
-    document.getElementById('qtyInput').value = "";
+    } catch (err) {
+        console.error("Error adding item:", err);
+    }
+});
+
+
+// ------------------------------
+// DELETE ITEM
+// ------------------------------
+async function deleteItem(id) {
+    try {
+        await fetch(`/api/groceries/${id}`, { method: "DELETE" });
+        loadItems(); // reload list
+    } catch (err) {
+        console.error("Error deleting item:", err);
+    }
 }
 
-function toggleComplete(box) {
-    const text = box.nextElementSibling;
-    text.style.textDecoration = box.checked ? "line-through" : "none";
-}
-
-function editItem(button) {
-    const text = button.parentElement.querySelector("span");
-    const newValue = prompt("Edit item:", text.textContent);
-    if (newValue) text.textContent = newValue;
-}

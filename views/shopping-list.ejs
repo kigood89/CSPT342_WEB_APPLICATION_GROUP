@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shopping List</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-  <%- include("partials/header") %>
+    <% include("partials/header") %>
 
-  <main class="container">
+    <main class="container">
 
-    <h2>Shopping List</h2>
+        <h2>Shopping List</h2>
 
-    <div class="card">
-      <input id="itemInput" placeholder="Item name">
-      <input id="qtyInput" placeholder="Qty" style="width:80px">
-      <select id="aisleInput">
-        <option>Produce</option>
-        <option>Dairy</option>
-        <option>Bakery</option>
-        <option>Frozen</option>
-        <option>Pantry</option>
-        <option>Household</option>
-        <option>Other</option>
-      </select>
-      <button onclick="addItem()">Add</button>
-    </div>
+        <!-- Input Card -->
+        <div class="card">
+            <input id="itemInput" placeholder="Item name">
+            <input id="qtyInput" placeholder="Qty" style="width:80px">
 
-    <div id="listContainer"></div>
+            <select id="aisleInput">
+                <option value="produce">Produce</option>
+                <option value="dairy">Dairy</option>
+                <option value="meat">Meat</option>
+                <option value="snacks">Snacks</option>
+                <option value="drinks">Drinks</option>
+                <option value="frozen">Frozen</option>
+                <option value="pantry">Pantry</option>
+            </select>
 
-  </main>
+            <button id="addBtn">Add Item</button>
+        </div>
 
-  <%- include("partials/footer") %>
+        <!-- This is where items will appear -->
+        <div id="listContainer" class="list-container"></div>
 
-  <script src="/js/shoppingList.js"></script>
+    </main>
+
+    <!-- Connect your JS file -->
+    <script src="/js/shoppingList.js"></script>
 
 </body>
 </html>
+
